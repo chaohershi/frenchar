@@ -1,0 +1,7 @@
+*.bat
+*.exe
+*.ini
+
+dev/
+history/
+x86/

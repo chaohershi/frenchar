@@ -1,37 +1,73 @@
-## Welcome to GitHub Pages
+Frenchar is a Windows utility written in [AutoHotkey](https://autohotkey.com/). It helps you input special French characters faster and easier.
 
-You can use the [editor on GitHub](https://github.com/chaohershi/frenchar/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Feature ##
+While typing, Frenchar will make auto replacements for you, so that you can "type out" special French characters (French accents and French ligature) using regular QWERTY keyboards.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![Typing french characters using Frenchar](img/Demo_Frenchar.gif)
 
-### Markdown
+Comparing to other solutions, Frenchar has the following advantages:
+- Configuration-free:  
+No need to set up extra keyboard layouts. Simply run Frenchar and start typing French characters right away.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Easy-to-use:  
+No cumbersome input procedures. The replacement rules are also very intuitive.
 
-```markdown
-Syntax highlighted code block
+- Non-interruptive:  
+Frenchar provides a streamlined input experience.
 
-# Header 1
-## Header 2
-### Header 3
+- Portable:  
+Frenchar does not require installation. Frenchar also does not write to the Windows registry or any folders.
 
-- Bulleted
-- List
+## Quick Reference ##
+L'accent aigu (é)
 
-1. Numbered
-2. List
+| Type  | Get |
+| :---- | :-- |
+| `e//` | `é` |
 
-**Bold** and _Italic_ and `Code` text
+L'accent grave (à, è, ù)
 
-[Link](url) and ![Image](src)
-```
+| Type  | Get |
+| :---- | :-- |
+| `a\\` | `à` |
+| `e\\` | `è` |
+| `u\\` | `ù` |
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+L'accent circonflexe (â, ê, î, ô, û)
 
-### Jekyll Themes
+| Type           | Get |
+| :------------- | :-- |
+| `a^^` or `a66` | `â` |
+| `e^^` or `e66` | `ê` |
+| `i^^` or `i66` | `î` |
+| `o^^` or `o66` | `ô` |
+| `u^^` or `u66` | `û` |
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chaohershi/frenchar/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Le tréma (ë, ï, ü)
 
-### Support or Contact
+| Type           | Get |
+| :------------- | :-- |
+| `e::` or `e;;` | `ë` |
+| `i::` or `i;;` | `ï` |
+| `u::` or `u;;` | `ü` |
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+La cédille (ç)
+
+| Type  | Get |
+| :---- | :-- |
+| `c,,` | `ç` |
+
+Le e dans l'o (œ)
+
+| Type   | Get |
+| :----- | :-- |
+| `oe--` | `œ` |
+
+## Download ##
+You can download the compiled standalone executable `Frenchar.exe` [here](https://github.com/chaohershi/frenchar/releases). No installation required.
+
+Alternatively, you can download the source code and run the script `Frenchar.ahk` having AutoHotkey installed.
+
+## License ##
+Frenchar is available under the MIT License.  
+Frenchar icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/free-icon/france_299490) is licensed by [CC 3.0 BY](https://creativecommons.org/licenses/by/3.0/).
