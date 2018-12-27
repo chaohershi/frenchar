@@ -1,7 +1,7 @@
 Frenchar is a Windows utility written in [AutoHotkey](https://autohotkey.com/). It helps you input special French characters faster and easier.
 
 ## Feature ##
-While typing, Frenchar will make auto replacements for you, so that you can "type out" special French characters (French accents and French ligature) using regular QWERTY keyboards.
+While typing, Frenchar makes auto replacements for you, so that you can "type out" special French characters (French accents and French ligature) using regular QWERTY keyboards.
 
 ![Typing french characters using Frenchar](img/Demo_Frenchar.gif)
 
