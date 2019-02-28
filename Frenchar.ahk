@@ -3,29 +3,15 @@
 SendMode Input
 
 ScriptName := "Frenchar"
-ScriptVersion := "1.0.0.0"
+ScriptVersion := "1.0.1.0"
 CopyrightNotice := "Copyright (c) 2018 Chaohe Shi"
 
-; add tray menu
-Menu, Tray, NoStandard ; remove the standard menu items
-Menu, Tray, Add, Suspend, SuspendProgram
-Menu, Tray, Default, Suspend ; set the default menu item
-Menu, Tray, Add
-Menu, Tray, Add, Help, HelpMsg
-Menu, Tray, Add, About, AboutMsg
-Menu, Tray, Add
-Menu, Tray, Add, Exit, ExitProgram
-Menu, Tray, Tip, %ScriptName% ; change the tray icon's tooltip
-
-Return ; end of the auto-execute section
-
-SuspendProgram:
-Menu, Tray, ToggleCheck, Suspend
-Suspend, Toggle
-Return
-
-HelpMsg:
-MsgBox, 0, Help,
+; set script texts
+TEXT_Suspend := "Suspend"
+TEXT_Help := "Help"
+TEXT_About := "About"
+TEXT_Exit := "Exit"
+TEXT_HelpMsg := "
 (
 L'accent aigu (é)
 type e// for é
@@ -52,11 +38,33 @@ type c,, for ç
 
 Le e dans l'o (œ)
 type oe-- for œ
-)
+)"
+
+; add tray menu
+Menu, Tray, NoStandard ; remove the standard menu items
+Menu, Tray, Add, %TEXT_Suspend%, SuspendProgram
+Menu, Tray, Default, %TEXT_Suspend% ; set the default menu item
+Menu, Tray, Add
+Menu, Tray, Add, %TEXT_Help%, HelpMsg
+Menu, Tray, Add, %TEXT_About%, AboutMsg
+Menu, Tray, Add
+Menu, Tray, Add, %TEXT_Exit%, ExitProgram
+Menu, Tray, Tip, %ScriptName% ; change the tray icon's tooltip
+
+Return ; end of the auto-execute section
+
+SuspendProgram:
+Menu, Tray, ToggleCheck, %TEXT_Suspend%
+Suspend, Toggle
+Return
+
+HelpMsg:
+MsgBox, 0, %TEXT_Help%, %TEXT_HelpMsg%
+
 Return
 
 AboutMsg:
-MsgBox, 0, About,
+MsgBox, 0, %TEXT_About%,
 (
 %ScriptName% %ScriptVersion%
 
