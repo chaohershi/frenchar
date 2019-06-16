@@ -1,10 +1,10 @@
-﻿#NoEnv
+#NoEnv
 #SingleInstance ignore ; allow only one instance of this script to be running
 SendMode Input
 
 ScriptName := "Frenchar"
-ScriptVersion := "1.0.1.0"
-CopyrightNotice := "Copyright (c) 2018 Chaohe Shi"
+ScriptVersion := "1.0.2.0"
+CopyrightNotice := "Copyright (c) 2018-2019 Chaohe Shi"
 
 ; set script texts
 TEXT_Suspend := "Suspend"
@@ -39,14 +39,15 @@ type c,, for ç
 Le e dans l'o (œ)
 type oe-- for œ
 )"
+TEXT_AboutMsg := ScriptName . " " . ScriptVersion . "`n`n" . CopyrightNotice
 
 ; add tray menu
 Menu, Tray, NoStandard ; remove the standard menu items
 Menu, Tray, Add, %TEXT_Suspend%, SuspendProgram
 Menu, Tray, Default, %TEXT_Suspend% ; set the default menu item
 Menu, Tray, Add
-Menu, Tray, Add, %TEXT_Help%, HelpMsg
-Menu, Tray, Add, %TEXT_About%, AboutMsg
+Menu, Tray, Add, %TEXT_Help%, ShowHelpMsg
+Menu, Tray, Add, %TEXT_About%, ShowAboutMsg
 Menu, Tray, Add
 Menu, Tray, Add, %TEXT_Exit%, ExitProgram
 Menu, Tray, Tip, %ScriptName% ; change the tray icon's tooltip
@@ -58,18 +59,32 @@ Menu, Tray, ToggleCheck, %TEXT_Suspend%
 Suspend, Toggle
 Return
 
-HelpMsg:
-MsgBox, 0, %TEXT_Help%, %TEXT_HelpMsg%
-
+ShowHelpMsg:
+Process, Exist
+DetectHiddenWindows, On
+if WinExist(TEXT_Help . " ahk_class #32770 ahk_pid " . ErrorLevel) ; if the help message already exists
+{
+	WinShow ; show the message window if it is hidden
+	WinActivate
+}
+else ; else display the help message
+{
+	MsgBox, 0, %TEXT_Help%, %TEXT_HelpMsg%
+}
 Return
 
-AboutMsg:
-MsgBox, 0, %TEXT_About%,
-(
-%ScriptName% %ScriptVersion%
-
-%CopyrightNotice%
-)
+ShowAboutMsg:
+Process, Exist
+DetectHiddenWindows, On
+if WinExist(TEXT_About . " ahk_class #32770 ahk_pid " . ErrorLevel) ; if the about message already exists
+{
+	WinShow ; show the message window if it is hidden
+	WinActivate
+}
+else ; else display the about message
+{
+	MsgBox, 0, %TEXT_About%, %TEXT_AboutMsg%
+}
 Return
 
 ExitProgram:
